@@ -98,7 +98,7 @@ const NavigationItems = [
         children: [
           {
             id: 'systemPrivileges',
-            title: 'Privileges',
+            title: 'System Privileges',
             type: 'item',
             url: '/privileges/system-privileges',
             icon: 'ti ti-dashboard',
