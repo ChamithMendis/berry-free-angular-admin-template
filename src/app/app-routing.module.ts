@@ -43,6 +43,14 @@ const routes: Routes = [
       {
         path: 'sample-page',
         loadComponent: () => import('./demo/sample-page/sample-page.component')
+      },
+      {
+        path: 'privileges',
+        loadChildren: () => import('./demo/pages/privileges/privileges.module').then((m) => m.PrivilegesModule)
+      },
+      {
+        path: 'pages',
+        loadChildren: () => import('./demo/pages/pages.module').then((m) => m.PagesModule)
       }
     ]
   }

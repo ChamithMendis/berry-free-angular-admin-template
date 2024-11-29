@@ -113,4 +113,19 @@ export class AuthenticationService {
 
     return this.http.put(requestUrl, data, { headers: headers }).toPromise();
   }
+
+  public isTokenExpired() {
+    const token = window.localStorage.getItem('auth_token');
+
+    if (!token) {
+      return false;
+    }
+
+    const expiry = JSON.parse(atob(token.split('.')[1])).exp;
+    return Math.floor(new Date().getTime() / 1000) >= expiry;
+  }
+
+  public clearCache(): void {
+    this.removeToken();
+  }
 }

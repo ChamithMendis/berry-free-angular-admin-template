@@ -26,7 +26,7 @@ const NavigationItems = [
     type: 'group',
     icon: 'icon-navigation',
     auth: authenticationEnum.Home,
-    isVisible: true,
+    isVisible: false,
     children: [
       {
         id: 'default',
@@ -74,6 +74,46 @@ const NavigationItems = [
             target: true,
             breadcrumbs: false,
             auth: authenticationEnum.Auth_Register,
+            isVisible: false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'privileges',
+    title: 'Privileges Section',
+    type: 'group',
+    icon: 'icon-navigation',
+    isVisible: false,
+    auth: authenticationEnum.Privileges,
+    children: [
+      {
+        id: 'privilegeDetails',
+        title: 'Privileges',
+        type: 'collapse',
+        icon: 'ti ti-key',
+        auth: authenticationEnum.Privileges,
+        isVisible: false,
+        children: [
+          {
+            id: 'systemPrivileges',
+            title: 'Privileges',
+            type: 'item',
+            url: '/privileges/system-privileges',
+            icon: 'ti ti-dashboard',
+            breadcrumbs: false,
+            auth: authenticationEnum.System_Privileges,
+            isVisible: false
+          },
+          {
+            id: 'privilegeGroups',
+            title: 'Privilege Grops',
+            type: 'item',
+            url: '/privileges/privilege-groups',
+            icon: 'ti ti-dashboard',
+            breadcrumbs: false,
+            auth: authenticationEnum.Privilege_Groups,
             isVisible: false
           }
         ]

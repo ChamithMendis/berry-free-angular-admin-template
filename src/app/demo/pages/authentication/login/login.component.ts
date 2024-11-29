@@ -34,9 +34,19 @@ export class LoginComponent {
   }
 
   ngOnInit(): void {
+    this.clearCacheIfNotAuthorize();
+
     this.cacheSubscription = this.cacheService.cache$.subscribe((data) => {
       this.data = data;
     });
+  }
+
+  public clearCacheIfNotAuthorize(): void {
+    const isTokenExpired = this.authenticationService.isTokenExpired();
+    if (isTokenExpired) {
+      console.log('expired');
+      this.authenticationService.clearCache();
+    }
   }
 
   getData(userId: number): void {
